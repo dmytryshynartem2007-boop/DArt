@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Інтернет-магазин | Кросівки Stilli</title>
+
+<style>
+body{font-family:Arial, Helvetica, sans-serif;margin:0;background:#f2f2f2}
+.container{max-width:650px;margin:auto;background:white;padding:20px}
+h1{font-size:28px;text-align:center;margin-bottom:5px}
+.subtitle{text-align:center;color:#555;margin-bottom:15px}
+.gallery{display:flex;overflow-x:auto;gap:10px;scroll-snap-type:x mandatory;padding-bottom:10px}
+.gallery img{width:100%;max-width:360px;border-radius:12px;scroll-snap-align:center}
+.price-box{text-align:center;margin:15px 0}
+.old-price{text-decoration:line-through;color:#888;font-size:18px}
+.price{font-size:34px;color:#e60000;font-weight:bold}
+.discount{background:#e60000;color:white;padding:5px 10px;border-radius:6px;display:inline-block;margin-top:5px;font-size:14px}
+.timer{text-align:center;color:#e60000;font-weight:bold;margin:10px 0;font-size:18px}
+.stock{text-align:center;color:#e60000;font-weight:bold;margin-top:10px}
+.size-box{margin-top:20px}
+.size-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+.size-btn{padding:10px;border:1px solid #ddd;background:#fafafa;border-radius:8px;cursor:pointer;font-weight:bold}
+.size-btn.active{background:black;color:white}
+.features{margin-top:20px}
+ul{padding-left:18px}
+li{margin:6px 0}
+.benefits{margin-top:20px}
+.benefit{background:#f9f9f9;padding:10px;border-radius:8px;margin:8px 0}
+.info-box{background:#f8f8f8;padding:12px;border-radius:10px;margin-top:15px}
+.btn{background:#111;color:white;padding:16px;width:100%;border:none;font-size:18px;border-radius:12px;margin-top:15px;cursor:pointer}
+.order-box{margin-top:25px}
+input{width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #ccc;font-size:16px}
+.footer{margin-top:25px;font-size:14px;color:#666;text-align:center}
+@media (max-width:600px){.container{padding:15px}h1{font-size:24px}.price{font-size:30px}}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Кросівки Stilli 👟</h1>
+<p class="subtitle">Стильні повсякденні кросівки у біло-чорному дизайні</p>
+
+<div class="gallery">
+<img src="img1.webp" alt="Кросівки 1">
+<img src="img2.webp" alt="Кросівки 2">
+<img src="img3.webp" alt="Кросівки 3">
+<img src="img4.webp" alt="Кросівки 4">
+<img src="img5.webp" alt="Кросівки 5">
+<img src="img6.webp" alt="Кросівки 6">
+</div>
+
+<div class="price-box">
+<div class="old-price">Стара ціна: 1400 грн</div>
+<div class="price">899 грн</div>
+<div class="discount">Знижка 36%</div>
+</div>
+
+<div class="timer">До кінця акції: <span id="countdown">10:00:00</span></div>
+
+<div class="stock">Залишилось лише 7 пар по акції</div>
+
+<div class="size-box">
+<h3>Оберіть розмір</h3>
+<div class="size-grid">
+<button class="size-btn" onclick="selectSize(this)">41</button>
+<button class="size-btn" onclick="selectSize(this)">42</button>
+<button class="size-btn" onclick="selectSize(this)">43</button>
+<button class="size-btn" onclick="selectSize(this)">44</button>
+<button class="size-btn" onclick="selectSize(this)">45</button>
+</div>
+</div>
+
+<div class="features">
+<h2>Характеристики</h2>
+<ul>
+<li><b>Бренд:</b> Stilli</li>
+<li><b>Колір:</b> Біло-чорний</li>
+<li><b>Матеріал верху:</b> екошкіра</li>
+<li><b>Устілка:</b> поліестер</li>
+<li><b>Підошва:</b> гума</li>
+<li><b>Застібка:</b> шнурівка</li>
+<li><b>Стиль:</b> повсякденний / спортивний</li>
+<li><b>Сезон:</b> весна / осінь</li>
+<li><b>Розміри:</b> 41-45</li>
+</ul>
+</div>
+
+<div class="benefits">
+<h2>Переваги</h2>
+<div class="benefit">✔ М'яка та зручна підошва</div>
+<div class="benefit">✔ Стильний універсальний дизайн</div>
+<div class="benefit">✔ Легка вага — ноги не втомлюються</div>
+<div class="benefit">✔ Ідеальні для щоденного носіння</div>
+</div>
+
+<div class="info-box">
+<b>Доставка:</b> Нова Пошта<br>
+Замовлення до 16:00 відправляються в день замовлення
+</div>
+
+<div class="info-box">
+<b>Оплата:</b> при отриманні у відділенні
+</div>
+
+<div class="order-box" id="form">
+<h2>Залиш заявку</h2>
+
+<form id="orderForm">
+<input type="text" id="name" placeholder="Ваше ім'я" required>
+<input type="text" id="phone" placeholder="Ваш номер телефону" required>
+
+<button class="btn" type="submit">Оформити замовлення</button>
+</form>
+
+<p id="result"></p>
+
+</div>
+
+<div class="footer">© Інтернет-магазин взуття</div>
+
+</div>
+
+<script>
+
+// вибір розміру
+let selectedSize = "";
+
+function selectSize(btn){
+  const buttons = document.querySelectorAll('.size-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedSize = btn.innerText;
+}
+
+// таймер
+let time = 36000; // 10 годин
+
+setInterval(function(){
+  const h = Math.floor(time/3600);
+  const m = Math.floor((time%3600)/60);
+  const s = time%60;
+
+  const text = h + ":" + (m<10?"0":"") + m + ":" + (s<10?"0":"") + s;
+
+  const el = document.getElementById("countdown");
+  if(el){ el.innerText = text; }
+
+  if(time>0) time--;
+},1000);
+
+// TELEGRAM
+const TOKEN = "8701378974:AAEdT2EWmBIHzL1HjhtgmB1Ypzg5YGFy_Bs";
+const CHAT_ID = "8284997554";
+
+const form = document.getElementById("orderForm");
+
+if(form){
+
+form.addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  if(selectedSize === ""){
+    document.getElementById("result").innerText = "Будь ласка, оберіть розмір";
+    return;
+  }
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+
+  const text = `🛒 Нова заявка
+
+Ім'я: ${name}
+Телефон: ${phone}
+Розмір: ${selectedSize}`;
+
+  fetch("https://api.telegram.org/bot"+TOKEN+"/sendMessage",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: text
+    })
+  })
+
+  .then(function(){
+    document.getElementById("result").innerText = "Заявка відправлена!";
+    form.reset();
+    selectedSize = "";
+    document.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));
+  })
+
+  .catch(function(){
+    document.getElementById("result").innerText = "Помилка відправки";
+  });
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
